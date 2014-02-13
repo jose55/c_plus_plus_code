@@ -148,14 +148,7 @@ void printBoard(const Board & board)
 //*****************************************************************************
 bool validPlace(const Board & board, int row, int col)
 {
-    if (row >= 0 && row < board.rows && col >= 0 && col < board.cols) // true if row and col are within the board
-    {
-        return true;
-    }
-    else
-    {    
-        return false;
-    }   
+  return row >= 0 && row < board.rows && col >= 0 && col < board.cols;
 }
 //*****************************************************************************
 void initBoard(Board & board, int rows, int cols)
@@ -164,7 +157,8 @@ void initBoard(Board & board, int rows, int cols)
     board.cols = cols;
     board.bombs = 0; // sets bombs to zero
     board.numSquaresTurned = 0; // sets number of turned to zero
-    
+      
+
     for (int i = 0; i < rows; i++)
     {    
         for (int j = 0; j < cols; j++) // loops trought and sets all to zero
