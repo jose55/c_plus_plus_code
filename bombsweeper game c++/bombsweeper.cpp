@@ -17,6 +17,8 @@ int main()
     
     do {
         printMainMenu(); // prints main menu
+
+	cout << "Choose: ";
         cin >> menuchoice; // takes the user iput and saves it in menuchoice
         switch (menuchoice) 
         {
@@ -188,6 +190,7 @@ int getValue(const string & prompt)
 	
 	if (cout << prompt, !(cin >> val))
 	{
+
 		cin.clear();
 		string junk;
 		getline(cin, junk);
@@ -201,20 +204,26 @@ int getValue(const string & prompt)
 void printMainMenu()
 {
 	cout << endl;
-	cout << "Bombsweeper Main Menu" << endl;
+	cout << "\033[0;31m";//color red (31)
+	cout << "BOMBSWEEPER"<<endl;
+	cout << "\033[0;33m";//color yelow (33)
+	cout<< "Main Menu" << endl;
 	cout << "  1    Start randomized game" << endl;
 	cout << "  2    Start game from file" << endl;
 	cout << "  3    Toggle color on/off" << endl;
 	cout << "  4    Quit" << endl;
+	cout << "\033[0;0m";//reset atributes terminal
 }
 //************************************************************************
 
 void printPlayerMenu()
 {
+        cout << "\033[0;36m";
 	cout << endl;
 	cout << "Select a command" << endl;
 	cout << "  M <row> <col>     Mark (or unmark) a bomb" << endl;
 	cout << "  U <row> <col>     Uncover a square" << endl;
 	cout << "  Q                 Quit current game, return to main menu" << endl << endl;
+	cout << "\033[0;0m";
 }
 //************************************************************************

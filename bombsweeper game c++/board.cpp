@@ -75,9 +75,15 @@ void printBoard(const Board & board)
 	cout << "    ";
 	for(int i = 0; i < board.cols; i++)
 	{
-		cout << ' ' << i;
+	  if(i<11)
+	    {
+	      cout << "\033[0;0m";
+	      cout << ' ';// << i;
+	    }
+	  i%2==0? cout << "\033[0;0m" : cout << "\033[0;33m"; 
+	  cout<<i;
 	}
-	cout << endl;
+	cout << "\033[0;0m" << endl;
     
     
 	//print top line
