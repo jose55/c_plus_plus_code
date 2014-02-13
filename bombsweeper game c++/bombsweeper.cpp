@@ -1,6 +1,7 @@
 // Fredrik Kjellberg, fredrikj  
 // Mathias Arkayin, markayin
 
+#include <limits.h>
 #include "bombsweeper.h"
 #include "ioutil.h"
 #include <iostream>
