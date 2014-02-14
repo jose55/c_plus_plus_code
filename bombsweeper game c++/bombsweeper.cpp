@@ -205,14 +205,24 @@ void printMainMenu()
 {
 	cout << endl;
 	cout << "\033[0;31m";//color red (31)
-	cout << "BOMBSWEEPER"<<endl;
+	cout << "\033[?25l";//hides the cursor
+	//	cout << "BOMBSWEEPER"<<endl;
+	effect title("BOMBSWEEPER");
+
+	sleep(1);
 	cout << "\033[0;33m";//color yelow (33)
 	cout<< "Main Menu" << endl;
+	sleep(1);
 	cout << "  1    Start randomized game" << endl;
+	usleep(500000);
 	cout << "  2    Start game from file" << endl;
+	usleep(500000);
 	cout << "  3    Toggle color on/off" << endl;
+	usleep(500000);
 	cout << "  4    Quit" << endl;
 	cout << "\033[0;0m";//reset atributes terminal
+	sleep(1);
+	cout << "\033[?25h";
 }
 //************************************************************************
 
@@ -227,3 +237,30 @@ void printPlayerMenu()
 	cout << "\033[0;0m";
 }
 //************************************************************************
+
+effect::effect(string StringToApplyEffect)
+{
+  
+  for(int position=1;position<=StringToApplyEffect.size();++position)
+    {
+
+      int colour=31;
+      (position%2)? colour=31 : colour=33;
+      cout << "\033[0;" << colour << "m";
+      //prints only one character
+      cout << StringToApplyEffect[position-1] << endl;
+
+      //moves up the cursor
+      cout << "\033[A";
+
+      //moves forward the cursor to the roght position
+      cout << "\033[" << position << "C";
+
+      //waits one second
+      sleep(1);
+    }
+
+  cout << endl;
+
+
+}

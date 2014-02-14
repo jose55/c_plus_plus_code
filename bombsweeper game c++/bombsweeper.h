@@ -138,7 +138,16 @@ void printMainMenu();
 //MODIFIES: cout
 void printPlayerMenu();
 
+class effect
+{
 
+
+ public:
+
+  effect(string);
+
+
+};
 
 
 #endif
